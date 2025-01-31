@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aadhar Details</title>
+
+    <script>
+        function applyStoredLanguage() {
+            let lang = localStorage.getItem("selectedLanguage");
+            if (lang) {
+                document.cookie = "googtrans=/en/" + lang + "; path=/"; // Apply stored language
+                setTimeout(() => location.reload(), 500); // Reload to apply translation
+            }
+        }
+    </script>
+</head>
+<body onload="applyStoredLanguage()">
+    <h2>Enter Your Aadhar Number</h2>
+    <input type="text" placeholder="Enter Aadhar Number">
+
+    <br><br>
+    <a href="summary.html">Next</a>
+</body>
+</html>

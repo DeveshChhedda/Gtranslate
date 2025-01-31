@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAN Details</title>
+
+    <script>
+        function applyStoredLanguage() {
+            let lang = localStorage.getItem("selectedLanguage");
+            if (lang) {
+                document.cookie = "googtrans=" + lang + "; path=/"; // Apply stored language
+                location.reload(); // Reload the page to apply the translation
+            }
+        }
+    </script>
+</head>
+<body onload="applyStoredLanguage()">
+    <h2>Enter Your PAN Number</h2>
+    <input type="text" placeholder="Enter PAN Number">
+
+    <br><br>
+    <a href="aadhar_details.html">Next</a>
+</body>
+</html>

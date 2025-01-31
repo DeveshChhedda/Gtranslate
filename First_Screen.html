@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Number Entry</title>
+
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,hi'}, 'google_translate_element');
+        }
+
+        function detectLanguage() {
+            let lang = getCookie("googtrans");
+            if (lang) {
+                localStorage.setItem("selectedLanguage", lang); // Store language in localStorage
+            }
+        }
+
+        function getCookie(name) {
+            let match = document.cookie.match(new RegExp("(^| )" + name + "=([^;]+)"));
+            return match ? decodeURIComponent(match[2]) : null;
+        }
+
+        function redirectToNext() {
+            location.href = "pan_details.html"; // Redirect to PAN details page
+        }
+    </script>
+
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+<body onload="detectLanguage()">
+    <div id="google_translate_element"></div>
+
+    <h2>Enter Your Mobile Number</h2>
+    <input type="tel" placeholder="Enter Mobile Number">
+
+    <br><br>
+    <button onclick="redirectToNext()">Next</button>
+</body>
+</html>
