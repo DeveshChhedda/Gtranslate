@@ -10,10 +10,19 @@
             let lang = localStorage.getItem("selectedLanguage");
             if (lang) {
                 document.cookie = "googtrans=" + lang + "; path=/"; // Apply stored language
-                location.reload(); // Reload the page to apply the translation
+
+                // Load Google Translate script dynamically
+                let script = document.createElement("script");
+                script.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+                document.head.appendChild(script);
             }
         }
+
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+        }
     </script>
+
 </head>
 <body onload="applyStoredLanguage()">
     <h2>Enter Your PAN Number</h2>
